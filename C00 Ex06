@@ -1,0 +1,47 @@
+#include <unistd.h>
+
+void    ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void    ft_putnumber(int nleft, int nright)
+{
+    ft_putchar(nleft / 10 + '0');
+	ft_putchar(nleft % 10 + '0');
+	ft_putchar(' ');
+    ft_putchar(nright / 10 + '0');
+	ft_putchar(nright % 10 + '0');
+	
+    if (nleft != 98)
+    {
+		ft_putchar(',');
+        ft_putchar(' ');
+    }
+}
+
+void	ft_print_comb2(void)
+{
+	int nbrleft;
+	int nbrright;
+	
+	nbrleft = 0;
+	nbrright = 1;
+	
+	while(nbrleft <= 98)
+	{
+		nbrright = nbrleft + 1;
+		while(nbrright <= 99)
+		{	
+			ft_putnumber(nbrleft, nbrright);
+			nbrright++;		
+		}
+		nbrleft++;
+	}	
+}
+
+int	main(void)
+{
+	ft_print_comb2();
+	return (0);
+}
