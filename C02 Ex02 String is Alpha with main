@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int ft_str_is_alpha(char *str)
+{
+	int index;
+	int returnvalue;
+
+	index = 0;
+	while(str[index] != '\0')
+	{
+		if(('a' <= str[index] && str[index] <= 'z')||('A' <= str[index] && str[index] <= 'Z'))
+		{
+			returnvalue = 1;
+		}
+		else if(str[0] == '\0')
+		{
+			returnvalue = 1;
+		}
+		else
+		{
+			returnvalue = 0;
+		}
+		index++;
+	}
+	return(returnvalue);
+}
+
+int main()
+{
+	char string1[]={""};
+	printf("%d", ft_str_is_alpha(string1));
+}
