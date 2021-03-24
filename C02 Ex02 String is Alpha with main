@@ -6,21 +6,24 @@ int ft_str_is_alpha(char *str)
 	int returnvalue;
 
 	index = 0;
-	while(str[index] != '\0')
+	if (str[index] == '\0')
 	{
-		if(('a' <= str[index] && str[index] <= 'z')||('A' <= str[index] && str[index] <= 'Z'))
+		returnvalue = 1;
+	}
+	else
+	{
+		while(str[index] != '\0')
 		{
-			returnvalue = 1;
+			if(('a' <= str[index] && str[index] <= 'z')||('A' <= str[index] && str[index] <= 'Z'))
+			{
+				returnvalue = 1;
+			}
+			else
+			{
+				returnvalue = 0;
+			}
+			index++;
 		}
-		else if(str[0] == '\0')
-		{
-			returnvalue = 1;
-		}
-		else
-		{
-			returnvalue = 0;
-		}
-		index++;
 	}
 	return(returnvalue);
 }
