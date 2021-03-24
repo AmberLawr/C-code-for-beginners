@@ -6,6 +6,7 @@ int ft_str_is_alpha(char *str)
 	int returnvalue;
 
 	index = 0;
+	returnvalue = 0;
 	if (str[index] == '\0')
 	{
 		returnvalue = 1;
@@ -19,9 +20,6 @@ int ft_str_is_alpha(char *str)
 				returnvalue = 1;
 			}
 			else
-			{
-				returnvalue = 0;
-			}
 			index++;
 		}
 	}
@@ -30,6 +28,6 @@ int ft_str_is_alpha(char *str)
 
 int main()
 {
-	char string1[]={""};
+	char string1[]={"*"};
 	printf("%d", ft_str_is_alpha(string1));
 }
