@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int ft_strcmp(char *s1, char *s2)
+{
+	int index;
+	int returnvalue;
+	
+	index = 0;
+	returnvalue = 1;
+	while(s1[index] != '\0' && s1[index]==s2[index])
+	{
+		returnvalue = 0;
+		index++;
+	}
+	return(returnvalue);	
+}
+
+int main()
+{
+	char string1[] = {"hello"};
+	char string2[] = {"hello"};
+	printf("%d",ft_strcmp(string1, string2));
+	
+}
