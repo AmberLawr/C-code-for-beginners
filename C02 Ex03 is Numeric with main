@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int	ft_str_is_numeric(char *str)
+{
+	int index;
+	int returnvalue;
+
+	index = 0;
+	returnvalue = 1;
+	while(str[index] != '\0' && returnvalue == 1)
+	{
+		if(!('0' <= str[index] && str[index] <= '9'))
+		{
+			returnvalue = 0;
+		}
+		else
+		{
+			returnvalue = 1;
+		}
+		index++;
+	}		
+	return(returnvalue);
+}
+
+int main()
+{
+	char string1[]={"1234*51"};
+	printf("%d", ft_str_is_numeric(string1));
+}
