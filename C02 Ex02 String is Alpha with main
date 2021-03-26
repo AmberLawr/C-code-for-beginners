@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <unistd.h>
 
 int ft_str_is_alpha(char *str)
 {
@@ -6,27 +6,47 @@ int ft_str_is_alpha(char *str)
 	int returnvalue;
 
 	index = 0;
-	returnvalue = 0;
-	if (str[index] == '\0')
+	returnvalue = 1;
+	while(str[index] != '\0')
 	{
-		returnvalue = 1;
-	}
-	else
-	{
-		while(str[index] != '\0')
+		if(!(('a' <= str[index] && str[index] <= 'z')||('A' <= str[index] && str[index] <= 'Z')))
 		{
-			if(('a' <= str[index] && str[index] <= 'z')||('A' <= str[index] && str[index] <= 'Z'))
-			{
-				returnvalue = 1;
-			}
-			index++;
+			returnvalue = 0;
 		}
+		else
+		{
+			returnvalue = 1;
+		}
+		index++;
 	}
 	return(returnvalue);
 }
 
-int main()
+int   main(void)
 {
-	char string1[]={"*"};
-	printf("%d", ft_str_is_alpha(string1));
+    char c;
+
+    char empty[] = "123";
+
+    c = ft_str_is_alpha(empty) + '0';
+    write(1, &c, 1);
+    //write(1, source, 7);
+
+	char c1;
+
+    char empty1[] = "";
+
+    c1 = ft_str_is_alpha(empty1) + '0';
+    write(1, &c1, 1);
+    //write(1, source, 7);
+ 
+
+	char c2;
+
+    char empty2[] = "alsjdha1";
+
+    c2 = ft_str_is_alpha(empty2) + '0';
+    write(1, &c2, 1);
+    //write(1, source, 7);
+	return (0);
 }
