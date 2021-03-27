@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int index1;
+	unsigned int index2;
+
+	index1 = 0;
+	while (index1 < nb)
+	{
+		index1++;
+	}
+	index2 = 0;
+	while (index2 < nb)
+	{
+		dest[index1] = src[index2];
+        index1++;
+        index2++;
+	}
+	dest[index1] = '\0';
+	return(dest);
+}
+
+int main()
+{
+	char source1[] = {"how are you?"};
+	char destina2[] = {"hello world "};
+	printf("%s",ft_strncat(destina2, source1, 5));
+}
