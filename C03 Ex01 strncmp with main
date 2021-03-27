@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int index;
+	unsigned int diff;
+	
+	index = 0;
+	while (index < n)
+	{
+		if (*s1 != *s2)
+			diff = *s1 - *s2;
+		else if (*s1 != '\0' && *s2 != '\0')
+			diff = 0;
+		s1++;
+		s2++;
+		index++;
+	}
+	return (diff);
+}
+
+int main()
+{
+	char string1[] = {"hello world"};
+	char string2[] = {"hello WORLD"};
+	printf("%d",ft_strncmp(string1, string2, 5));
+}
