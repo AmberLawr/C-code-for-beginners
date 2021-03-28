@@ -6,7 +6,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	unsigned int index2;
 
 	index1 = 0;
-	while (index1 < nb)
+	while (dest[index1] != '\0')
 	{
 		index1++;
 	}
