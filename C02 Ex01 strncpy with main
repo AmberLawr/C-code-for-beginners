@@ -11,7 +11,7 @@
 		index++;
 	}
 
-	while ((index < n) && (dest[index] != '\0'))
+	while (index < n) 
 	{
 		dest[index] = '\0';
 		index++;
