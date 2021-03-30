@@ -6,22 +6,25 @@ int ft_strncmp(char *s1, char *s2, unsigned int n)
 	unsigned int diff;
 	
 	index = 0;
-	while (index < n)
+	while (index < n && s1[index] == s2[index])
 	{
-		if (*s1 != *s2)
-			diff = *s1 - *s2;
-		else if (*s1 != '\0' && *s2 != '\0')
-			diff = 0;
-		s1++;
-		s2++;
+		diff = 0;
 		index++;
 	}
+		if (s1[0] == '\0' && s2[0] == '\0')
+		{
+			diff = 0;
+		}
+		else
+		{
+			diff = s1[index] -s2[index];
+		}	
 	return (diff);
 }
 
 int main()
 {
-	char string1[] = {"hello world"};
-	char string2[] = {"hello WORLD"};
+	char string1[] = {"skdjfh1skdjfh"};
+	char string2[] = {"skdjfh2skdjfh"};
 	printf("%d",ft_strncmp(string1, string2, 5));
 }
