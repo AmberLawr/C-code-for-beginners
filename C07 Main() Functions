@@ -1,0 +1,64 @@
+ex00
+
+clear && c ft_strdup.c && ./a.out
+
+#include <stdio.h>
+int main()
+{
+    char *src = "Hello world, this is strdup!";
+    printf("%s\n", ft_strdup(src));
+}
+
+ex01
+
+clear && c ft_range.c && ./a.out
+
+#include <stdio.h>
+int main()
+{
+    int min = -1;
+    int max = 10;
+    int *range = ft_range(min, max + 1);
+    if (range == (int*)0)
+        printf("range is null");
+    for (int i = 0; i < (max + 1 - min); i++)
+        printf("%d, ", range[i]);
+    printf("\n");
+}
+
+ex02
+
+clear && c ft_ultimate_range.c && ./a.out
+
+#include <stdio.h>
+int main()
+{
+    int min = -1;
+    int max = 0;
+    int **range = (int **)malloc(sizeof(int **) * (max + 1 - min));
+    printf("%d\n", ft_ultimate_range(range, min, max + 1));
+    if (range ==(int **)0)
+        printf("range == null");
+    for (int i = 0; i < (max + 1 - min); i++)
+        printf("%d, ", range[0][i]);
+    printf("\n");
+}
+
+ex03
+
+clear && c ft_strjoin.c && ./a.out
+
+#include <stdio.h>
+int main()
+{
+    char *strs[] = {
+        "Hello",
+        "World",
+        "This",
+        "IS",
+        "Toni"
+    };
+    char *sep = "..., ";
+    char *joined = ft_strjoin(5, strs, sep);
+    printf("<%s>\n", joined);
+}
