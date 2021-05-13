@@ -1,0 +1,48 @@
+//#include <unistd.h>
+#include <stdio.h>
+
+//C05 Ex03
+
+int ft_recursive_power(int nb, int power)
+{
+  int product;
+  product = 0; 
+
+   if (power < 0)
+  {
+    return (0);
+  }
+  else if (power == 0)
+  {
+    return (1);
+  }
+  else
+  {
+    product = nb * (ft_recursive_power(nb, power - 1));
+  }
+  return product;
+}
+
+int main(void) {
+  int result;
+
+  result = ft_recursive_power(0, 0);
+  printf("Result should be 1: %d\n", result);
+
+  result = ft_recursive_power(1, -1);
+  printf("Result should be 0: %d\n", result);
+
+  result = ft_recursive_power(-1, 1);
+  printf("Result should be -1: %d\n", result);
+
+  result = ft_recursive_power(0, 1);
+  printf("Result should be 0: %d\n", result);
+  
+  result = ft_recursive_power(3, 2);
+  printf("Result should be 9: %d\n", result);
+  
+  result = ft_recursive_power(1, 1);
+  printf("Result should be 1: %d\n", result);
+  
+  return (0);
+}
