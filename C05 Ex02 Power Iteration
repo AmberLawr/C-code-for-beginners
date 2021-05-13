@@ -1,0 +1,51 @@
+//#include <unistd.h>
+#include <stdio.h>
+
+//C05 Ex02
+
+int ft_iterative_power(int nb, int power)
+{
+  int i;
+  int product;
+
+  i = 0;
+  product = 1; //this was missing
+
+  if (power < 0) // you had (nb < 0)
+  {
+    return (0);
+  }
+  else
+  {
+    while (i < power)
+    {
+      product = product * nb;
+      i++;
+    }
+    return (product); //parenteses were missing
+  }
+}
+
+int main(void) {
+  int result;
+
+  result = ft_iterative_power(0, 0);
+  printf("Result should be 1: %d\n", result);
+
+  result = ft_iterative_power(1, -1);
+  printf("Result should be 0: %d\n", result);
+
+  result = ft_iterative_power(-1, 1);
+  printf("Result should be -1: %d\n", result);
+
+  result = ft_iterative_power(0, 1);
+  printf("Result should be 0: %d\n", result);
+  
+  result = ft_iterative_power(3, 2);
+  printf("Result should be 9: %d\n", result);
+  
+  result = ft_iterative_power(1, 1);
+  printf("Result should be 1: %d\n", result);
+  
+  return (0);
+}
