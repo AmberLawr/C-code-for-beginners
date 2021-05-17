@@ -1,0 +1,35 @@
+#include <unistd.h>
+
+//Prototyping:
+void ft_putstr();
+
+int ft_print_params(int argc, char** argv[])
+{
+  int index;
+
+  index = 1;
+  while (index < argc)
+    {
+      ft_putstr(argv[index]);
+      write (1, "\n", 1);
+      index ++;
+    }
+}
+
+void	ft_putstr(char *str)
+{
+	int index;
+
+	index = 0;	
+	while (str[index] != '\0')
+	{
+		write(1, &str[index], 1);
+		index++;
+	}
+}
+
+int main(int argc, char** argv[]) 
+{
+  ft_print_params(argc, argv);
+  return (0);
+}
