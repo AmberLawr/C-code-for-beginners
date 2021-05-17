@@ -1,0 +1,32 @@
+#include <unistd.h>
+
+// argc - number of parameters
+// program name is stored in:
+// argv[0] = program name
+
+//Prototyping:
+void ft_print_program_name();
+void ft_putstr();
+
+int main(int argc, char* argv[]) 
+{
+  ft_print_program_name(argc, argv);
+  return (0);
+}
+
+void ft_print_program_name(int argc, char* argv[])
+{
+	ft_putstr(argv[0]);
+}
+
+void	ft_putstr(char *str)
+{
+	int index;
+
+	index = 0;	
+	while (str[index] != '\0')
+	{
+		write(1, &str[index], 1);
+		index++;
+	}
+}
