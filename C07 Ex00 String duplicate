@@ -1,0 +1,63 @@
+
+#include <stdlib.h>
+#include <unistd.h>
+
+//prototyping
+void ft_putstr();
+char *ft_strdup();
+int ft_strlen();
+
+int main()
+{
+  char *str = "a string";
+  char *strdup = ft_strdup(str);
+  
+  ft_putstr(str);
+  ft_putstr(strdup);
+
+  return (0);
+}
+
+char *ft_strdup(char *src)
+{
+  int index;
+  int length;
+  char *target;
+
+  index = 0;
+  length = ft_strlen(src);
+  target = (char *) malloc(sizeof(char) * length);
+
+  while (src[index] != '\0')
+  {
+    target[index] = src[index];
+    index++;
+  } 
+
+  return (target);
+}
+
+void	ft_putstr(char *str)
+{
+	int index;
+
+	index = 0;	
+	while (str[index] != '\0')
+	{
+		write(1, &str[index], 1);
+		index++;
+	}
+}
+
+int	ft_strlen(char *str)
+{
+	int index;
+
+	index = 0;	
+	while (str[index] != '\0')
+	{
+		index++;
+	}
+	return (index);
+}
+
