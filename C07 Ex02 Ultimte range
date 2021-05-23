@@ -1,0 +1,47 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
+//prototyping
+int ft_ultimate_range(int **range, int min, int max);
+
+int main()
+{
+  int *list;
+  int length; 
+  
+  length = ft_ultimate_range(&list, 0, 7);
+  
+  for (int i = 0; i < length; i++)
+  {
+    printf("%d ", list[i]);
+  }
+
+  printf("\n");
+
+  return (0);
+}
+
+int ft_ultimate_range(int **range, int min, int max)
+{
+  int index;
+  int length;
+  
+  length = max - min;
+
+  //assigning memory space to range
+  *range = (int *) malloc(length * sizeof (int));
+
+  if (*range == NULL)
+    return (-1);
+ 
+  index = 0;
+  
+  while (index < length)
+  {
+    (*range)[index] = min;
+    index++;
+    min++;
+  }
+   return (length);
+}
