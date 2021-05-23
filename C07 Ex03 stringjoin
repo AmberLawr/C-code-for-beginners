@@ -1,0 +1,71 @@
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
+//prototyping:
+char *ft_strjoin(int size, char **strs, char *sep);
+
+int main()
+{
+  char *string1[2];
+  char *stringtarget;
+  char *sep = " ";
+
+  string1[0] = "Guten";
+  string1[1] = "Tag";
+
+  stringtarget = ft_strjoin(2, string1, sep);
+
+  printf("%s", stringtarget);
+
+  return (0);
+}
+
+char *ft_strjoin(int size, char **strs, char *sep)
+{
+  int wordcount1;
+  int wordcount2;
+  int targetlength;
+  char *target;
+  int counter1;
+  int counter2;
+  int targetcount;
+
+
+  targetcount = wordcount1 = wordcount2 = targetlength = counter1 = counter2 = 0;
+
+  while (wordcount1 < size) // counting the targetlength
+  {
+    counter1 = 0;
+    while (strs[wordcount1][counter1] != '\0')
+     { 
+       counter1++;
+       targetlength++;
+     }  
+    wordcount1++;
+  }
+
+  targetlength = targetlength + (size);
+  //memory calculation
+  target = (char *) malloc(sizeof(char) * targetlength); 
+  
+ while (wordcount2 < size)
+ {
+   counter2 = 0;
+   while (strs[wordcount2][counter2] != '\0')
+   {
+     target[targetcount] = strs[wordcount2][counter2];
+     counter2++;
+     targetcount++;
+   }
+   if (wordcount2 < (size - 1))
+    {
+      target[targetcount] = *sep;
+      targetcount++;
+    }
+   wordcount2++;
+ }
+ target[targetcount] = '\0';
+
+  return (target);
+}
