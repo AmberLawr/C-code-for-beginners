@@ -1,0 +1,134 @@
+#include <unistd.h>
+#include <stdlib.h>
+
+void    ft_putchar(char c);
+char **ft_split(char *str, char *charset);
+int     ft_strlen(const char *str);
+
+void    ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+int     ft_strlen(const char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i] != '\0')
+        i++;
+    return (i);
+}
+
+int wordcount(char *str, char *charset)
+{
+  int charsetcount = 0;
+  int index = 0;
+
+  while (str[index] != '\0') // <-- stuck here
+  {
+    if (str[index] == *charset)
+    {
+      charsetcount++;
+    }
+    index++;
+  }
+
+  int wordnbr = charsetcount + 1;
+  return wordnbr;
+}
+
+int lettercount(char *str, char *charset)
+{
+  int letternbr = 0;
+  int index = 0;
+
+  while(str[index] != *charset)
+  {
+    letternbr++;
+    index++;
+  }
+  return letternbr;
+
+}
+
+char **ft_split(char *str, char *charset)
+{
+  //create the array memory
+  int wordnbr = wordcount(str, charset);
+
+  char *result[wordnbr + 1];
+  int index; 
+  int kndex;
+
+  index = 0; //result//result
+  kndex = 0;
+
+   while(wordnbr > 0)
+  {
+    int howmanyltr = lettercount(str, charset);
+    result[index] = (char *)malloc((howmanyltr + 1) * sizeof(char));
+    index++;
+    str = str + howmanyltr + 1;
+    wordnbr--;
+  } 
+
+  wordnbr = 0;
+  index = 0;
+
+  while(str[kndex] != '\0')
+  {
+    if(str[kndex] != *charset)
+    {
+     result[wordnbr][index] = str[kndex];
+     index++;
+     kndex++;
+    }
+    else
+    {
+      result[wordnbr][index] = '\0';
+      wordnbr++;
+      kndex++;
+      index = 0;
+    }
+  }
+
+  wordnbr++;
+  result[wordnbr] = 0;
+
+  return (result);
+}
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int     main(void)
+{
+    int i;
+    int j;
+    char str1[] = "Hello Bye";
+    char **result;
+
+    i = 0;
+    char k = ' ';
+    result = ft_split(str1, &k); // " "
+
+    while(result[i] != '\0')
+    {
+      while(result[j] != '\0') 
+      // result[][] = {"Hello\0", "Bye\0", "0\0"}
+      {
+        printf("%c\n", result[i][j]);
+        j++;
+      }
+      printf("\n");
+      i++;
+    }
+   
+    return (0);
+}
+
+// input = "hello bye" --> 13 char
+// result = {"hi\0", "hi\0", "Bye\0", "hi\0" "0\0"}; 15 char
